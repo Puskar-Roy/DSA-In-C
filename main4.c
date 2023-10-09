@@ -38,35 +38,6 @@ void traverse(node *p)
     }
 }
 
-void insertDoubleList(node **p, int position, int data)
-{
-    node *n = (node *)malloc(sizeof(node));
-    n->data = data;
-    n->left = NULL;
-    n->right = NULL;
-
-    if (position == 0)
-    {
-        n->right = *p;
-        *p= n; 
-    }
-    else
-    {
-        node *q = *p;
-        int i;
-        for (i = 0; i < (position - 1) && (q != NULL); i++)
-        {
-            q = q->right;
-        }
-        n->right = q->right;
-        if (q->right != NULL)
-        {
-            q->right->left = n;
-        }
-        q->right = n;
-        n->left = q;
-    }
-}
 
 void insertList(node **p,int i,node *t){
     node *q,*x;
@@ -75,14 +46,14 @@ void insertList(node **p,int i,node *t){
         *p = t;
     }else{
         q = *p;
-        for (int j = 0; j < (q!=NULL)&&(i-1); j++)
+        for (int j = 0; j < (i - 1) && (q != NULL); j++)
         {
             q = q->right;
         }
         t->right = q->right;
         if (q->right != NULL)
         {
-            q->right->left = n;
+            q->right->left = t;
         }
         q->right= t;
         t->left = q; 
@@ -101,9 +72,14 @@ int main(int argc, char const *argv[])
     scanf("%d", &n);
     node *head = createlistdouble(n);
     // traverse(head);
-    printf("Enter Index - ");
+    // printf("Enter Index - ");
+    // scanf("%d", &i);
+    node *newNode;
+    printf("Enter The Data Of New Node - ");
+    scanf("%d", &(newNode->data));
+    printf("Enter The Insert Index - ");
     scanf("%d", &i);
-    insertDoubleList(&head , i, 0);
+    insertList(&head , i , newNode);
     traverse(head);
     
     return 0;

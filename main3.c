@@ -110,6 +110,7 @@ int main(void)
    printf("Enter Size Of Linked List - ");
    scanf("%d", &n);
    dnode *head = createdlist(n);
+   
     dtraverse(head);
 
 
