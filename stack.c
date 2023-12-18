@@ -46,10 +46,6 @@ void printStack(stack *s)
     for (int i = 0; i <= s->top; i++)
     {
         printf("%d", s->arr[i]);
-        // if (i < s->top)
-        // {
-        //     printf(" -> ");
-        // }
     }
     printf("\n");
 }
