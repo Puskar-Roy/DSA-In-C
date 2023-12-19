@@ -23,7 +23,7 @@ int push(stack *s, int n)
     return 1;
 }
 
-int pop(stack *s, int a)
+int pop(stack *s, int *a)
 {
     node *t;
     if (s->top == NULL)
@@ -50,9 +50,9 @@ void display(stack *s)
     while (current != NULL)
     {
         printf("%d", current->data);
+        printf("\n");
         current = current->next;
     }
-    printf("\n");
 }
 
 int main(void)
@@ -63,6 +63,9 @@ int main(void)
     push(&s, 10);
     push(&s, 20);
     push(&s, 30);
+    int data;
+    pop(&s,&data);
+    display(&s);
 
 
     return 0;
