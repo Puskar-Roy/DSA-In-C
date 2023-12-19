@@ -52,6 +52,7 @@ int pop(queue *q, int *value)
     *value = temp->data;
 
     q->front = temp->next;
+    
     free(temp);
 
     if (q->front == NULL)
